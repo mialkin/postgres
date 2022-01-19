@@ -1,0 +1,13 @@
+version: '3.5'
+
+services:
+  db:
+    image: postgres:12
+    environment:
+      POSTGRES_USER: my_user
+      POSTGRES_PASSWORD: my_pw
+      POSTGRES_DBNAME: my_db
+      PGDATA: /data/postgres
+    ports:
+      - "5432:5432"
+      
