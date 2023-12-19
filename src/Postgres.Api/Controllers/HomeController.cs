@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Postgres.Api.Database;
+using Postgres.Database;
 
 namespace Postgres.Api.Controllers;
 

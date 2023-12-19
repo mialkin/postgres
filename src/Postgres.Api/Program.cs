@@ -1,8 +1,7 @@
 using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
-using Postgres.Api.Database;
+using Postgres.Api.Configurations;
 using Postgres.Database;
-using Postgres.Database.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
 

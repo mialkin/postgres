@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Postgres.Database.Entities;
 
-namespace Postgres.Api.Database;
+namespace Postgres.Database;
 
 public sealed class BloggingContext : DbContext
 {

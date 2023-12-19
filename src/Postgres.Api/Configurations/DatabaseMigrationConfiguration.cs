@@ -1,9 +1,7 @@
-using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Postgres.Api.Database;
+using Postgres.Database;
 
-namespace Postgres.Database.Configurations;
+namespace Postgres.Api.Configurations;
 
 public static class DatabaseMigrationConfiguration
 {
