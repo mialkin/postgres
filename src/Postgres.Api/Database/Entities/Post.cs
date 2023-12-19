@@ -2,17 +2,12 @@ namespace Postgres.Api.Database.Entities;
 
 public class Post
 {
-    public Post(string title, string content, Blog blog)
-    {
-        Title = title;
-        Content = content;
-        Blog = blog;
-    }
-
-    public int PostId { get; set; }
-    public string Title { get; set; }
-    public string Content { get; set; }
+    public int Id { get; set; }
+    public string Title { get; set; } = null!;
+    public string Content { get; set; } = null!;
+    public DateTime PublishedOn { get; set; }
+    public bool Archived { get; set; }
 
     public int BlogId { get; set; }
-    public Blog Blog { get; set; }
+    public Blog Blog { get; set; } = null!;
 }

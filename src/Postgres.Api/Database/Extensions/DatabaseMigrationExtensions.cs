@@ -11,7 +11,7 @@ public static class DatabaseMigrationExtensions
 
         var bloggingContext = services.GetRequiredService<BloggingContext>();
         
-        await bloggingContext.Database.EnsureCreatedAsync();
+        // await bloggingContext.Database.EnsureCreatedAsync();
         await bloggingContext.Database.MigrateAsync();
     }
 }
