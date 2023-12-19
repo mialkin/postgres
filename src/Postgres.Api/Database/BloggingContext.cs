@@ -1,27 +1,16 @@
 using Microsoft.EntityFrameworkCore;
-using Npgsql;
-using Postgres.Api.Enums;
+using Postgres.Api.Database.Entities;
 
 namespace Postgres.Api.Database;
 
-public class BloggingContext : DbContext
+public sealed class BloggingContext : DbContext
 {
     public DbSet<Blog> Blogs { get; set; }
     public DbSet<Post> Posts { get; set; }
 
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
     public BloggingContext(DbContextOptions<BloggingContext> options) : base(options)
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
     {
-        NpgsqlConnection.GlobalTypeMapper.MapEnum<BlogStatus>();
-        Database.EnsureCreated();
-    }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.HasPostgresEnum<BlogStatus>();
-    }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        //optionsBuilder.UseNpgsql("Host=localhost;Database=my_db;Username=my_user;Password=my_pw");
     }
 }

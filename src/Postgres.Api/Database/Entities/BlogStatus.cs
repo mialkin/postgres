@@ -1,4 +1,4 @@
-namespace Postgres.Api.Enums;
+namespace Postgres.Api.Database.Entities;
 
 public enum BlogStatus
 {

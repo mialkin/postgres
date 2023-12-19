@@ -5,8 +5,9 @@ using Postgres.Api.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers().AddJsonOptions(x =>
-    x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+builder.Services
+    .AddControllers()
+    .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles); // TODO Remove?
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -24,6 +25,6 @@ if (app.Environment.IsDevelopment())
 
 app.MapControllers();
 
-await app.MigrateDbAsync();
+await app.MigrateDatabaseAsync();
 
 app.Run();

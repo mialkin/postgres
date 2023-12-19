@@ -1,57 +1,35 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Postgres.Api.Database;
-using Postgres.Api.Enums;
+using Postgres.Api.Database.Entities;
 
 namespace Postgres.Api.Controllers;
 
 [ApiController]
 [Route("[controller]/[action]")]
-public class HomeController : ControllerBase
+public class HomeController(BloggingContext database) : ControllerBase
 {
-    private readonly BloggingContext _database;
-
-    public HomeController(BloggingContext database)
-    {
-        _database = database;
-    }
-
     [HttpGet]
     public async Task<IActionResult> InitializeWithTestData()
     {
-        if (await _database.Blogs.AnyAsync()) return Ok();
+        if (await database.Blogs.AnyAsync()) return Ok();
 
-        var blog = new Blog
+        var blog = new Blog(url: "https://example.com", status: BlogStatus.Active);
+
+        blog.Posts = new List<Post>
         {
-            Status = BlogStatus.Active,
-            Url = "https://example.com",
-            Posts = new List<Post>
-            {
-                new()
-                {
-                    Title = "Title 1",
-                    Content = "Text 1"
-                },
-                new()
-                {
-                    Title = "Title 2",
-                    Content = "Text 2"
-                }
-            }
+            new(title: "Title 1", content: "Text 1", blog),
+            new(title: "Title 2", content: "Text 2", blog)
         };
 
-        _database.Blogs.Add(blog);
-        await _database.SaveChangesAsync();
+        database.Blogs.Add(blog);
+        await database.SaveChangesAsync();
 
-        var blog2 = new Blog
-        {
-            Status = BlogStatus.Inactive,
-            Url = "https://example.com"
-        };
+        var blog2 = new Blog(url: "https://example.com", status: BlogStatus.Inactive);
 
-        _database.Blogs.Add(blog2);
+        database.Blogs.Add(blog2);
 
-        await _database.SaveChangesAsync();
+        await database.SaveChangesAsync();
 
         return Ok();
     }
@@ -59,7 +37,7 @@ public class HomeController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetData()
     {
-        var blogs = await _database.Blogs
+        var blogs = await database.Blogs
             .Include(x => x.Posts)
             .ToListAsync();
 
