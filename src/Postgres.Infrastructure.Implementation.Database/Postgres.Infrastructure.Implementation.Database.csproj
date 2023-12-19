@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="EFCore.NamingConventions" Version="8.0.0-rc.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Postgres.Infrastructure.Interfaces.Database\Postgres.Infrastructure.Interfaces.Database.csproj" />
+    </ItemGroup>
+
+</Project>

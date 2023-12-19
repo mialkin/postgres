@@ -1,17 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Postgres.Database;
+using Postgres.Infrastructure.Interfaces.Database;
 
 namespace Postgres.Api.Controllers;
 
 [ApiController]
 [Route("[controller]/[action]")]
-public class HomeController(BloggingContext database) : ControllerBase
+public class HomeController(IDatabaseContext databaseContext) : ControllerBase
 {
     [HttpGet]
     public async Task<IActionResult> GetData()
     {
-        var blogs = await database.Blogs
+        var blogs = await databaseContext.Blogs
             .Include(x => x.Posts)
             .ToListAsync();
 

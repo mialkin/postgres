@@ -1,4 +1,4 @@
-namespace Postgres.Database.Entities;
+namespace Postgres.Domain.Entities;
 
 public class Post
 {
