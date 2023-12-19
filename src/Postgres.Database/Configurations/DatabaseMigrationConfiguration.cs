@@ -1,8 +1,11 @@
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Postgres.Api.Database;
 
-namespace Postgres.Api.Database.Extensions;
+namespace Postgres.Database.Configurations;
 
-public static class DatabaseMigrationExtensions
+public static class DatabaseMigrationConfiguration
 {
     public static async Task MigrateDatabaseAsync(this WebApplication application)
     {

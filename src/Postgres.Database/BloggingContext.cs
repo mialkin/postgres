@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Postgres.Api.Database.Entities;
+using Postgres.Database.Entities;
 
 namespace Postgres.Api.Database;
 
