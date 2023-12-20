@@ -18,6 +18,8 @@ public static class DatabaseConfiguration
                 .UseSnakeCaseNamingConvention();
         });
 
+        services.AddScoped<IReadOnlyDatabaseContext, ReadOnlyDatabaseContext>();
+        
         return services;
     }
 }

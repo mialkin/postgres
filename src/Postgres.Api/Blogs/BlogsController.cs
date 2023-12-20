@@ -8,12 +8,14 @@ namespace Postgres.Api.Blogs;
 
 [ApiController]
 [Route("[controller]")]
-public class BlogsController(IDatabaseContext databaseContext) : ControllerBase
+public class BlogsController(
+    IReadOnlyDatabaseContext readOnlyDatabaseContext,
+    IDatabaseContext databaseContext) : ControllerBase
 {
     [HttpGet("list-all")]
     public async Task<IActionResult> ListAll()
     {
-        var blogs = await databaseContext.Blogs
+        var blogs = await readOnlyDatabaseContext.Blogs
             .Include(x => x.Posts)
             .ToListAsync();
 
