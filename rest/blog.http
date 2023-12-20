@@ -1,6 +1,8 @@
+@baseUrl=http://localhost:7010
+
 ### Create new blog
 
-POST http://localhost:7010/blogs/create
+POST {{baseUrl}}/blogs/create
 Content-Type: application/json
 
 {
@@ -9,4 +11,4 @@ Content-Type: application/json
 }
 
 ### List all blogs
-GET http://localhost:7010/blogs/list-all
+GET {{baseUrl}}/blogs/list-all
