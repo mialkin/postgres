@@ -1,1 +1,12 @@
+### Create new blog
+
+POST http://localhost:7010/blogs/create
+Content-Type: application/json
+
+{
+  "name": "Christmas blog",
+  "SiteUri": "https://christmas-blog.nonexisting"
+}
+
+### List all blogs
 GET http://localhost:7010/blogs/list-all
