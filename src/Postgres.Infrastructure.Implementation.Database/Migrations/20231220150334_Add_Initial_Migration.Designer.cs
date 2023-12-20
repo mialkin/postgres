@@ -12,8 +12,8 @@ using Postgres.Infrastructure.Implementation.Database;
 namespace Postgres.Infrastructure.Implementation.Database.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20231219205002_Add_lnitial_Commit")]
-    partial class Add_lnitial_Commit
+    [Migration("20231220150334_Add_Initial_Migration")]
+    partial class Add_Initial_Migration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
