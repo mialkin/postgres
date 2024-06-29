@@ -10,12 +10,24 @@ run-infrastructure: copy-env
 shutdown-infrastructure:
 	docker-compose -f docker-compose.infrastructure.yml down
 
-.PHONY: run-application
-run-application:
-	dotnet run --project src/Postgres.Api
+.PHONY: add-database-migration
+add-database-migration:
+	dotnet ef migrations add $(MIGRATION_NAME) \
+        --project src/Postgres.Infrastructure.Implementation.Database \
+        --startup-project src/Postgres.Api
 
-.PHONY: update-database
-update-database:
+.PHONY: apply-database-migrations
+apply-database-migrations:
 	dotnet ef database update \
         --project src/Postgres.Infrastructure.Implementation.Database \
         --startup-project src/Postgres.Api
+
+.PHONY: list-database-migrations
+list-database-migrations:
+	dotnet ef migrations list \
+        --project src/Postgres.Infrastructure.Implementation.Database \
+        --startup-project src/Postgres.Api
+
+.PHONY: run-application
+run-application:
+	dotnet run --project src/Postgres.Api
