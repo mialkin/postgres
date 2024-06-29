@@ -12,7 +12,7 @@ shutdown-infrastructure:
 
 .PHONY: add-database-migration
 add-database-migration:
-	dotnet ef migrations add $(MIGRATION_NAME) \
+	dotnet ef migrations add $(name) \
         --project src/Postgres.Infrastructure.Implementation.Database \
         --startup-project src/Postgres.Api
 

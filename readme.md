@@ -12,3 +12,10 @@ Terminal 2:
 make apply-database-migrations
 make run-application
 ```
+
+Additional commands:
+
+```csharp
+make list-database-migrations
+make add-database-migration name="Add_Initial_Migration"
+```
