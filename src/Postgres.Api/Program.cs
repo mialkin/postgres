@@ -15,7 +15,7 @@ services.AddControllers();
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
 services.AddRouting(options => options.LowercaseUrls = true);
-services.ConfigureDatabase();
+services.ConfigureDatabase(builder.Configuration);
 
 var application = builder.Build();
 application.UseSwagger();
