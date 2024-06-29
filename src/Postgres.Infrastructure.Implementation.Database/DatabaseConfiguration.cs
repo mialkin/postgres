@@ -9,7 +9,7 @@ public static class DatabaseConfiguration
     public static IServiceCollection ConfigureDatabase(this IServiceCollection services)
     {
         // TODO Move to appsettings.Ide.json
-        var connectionString = "User ID=postgres;Password=postgres;Host=localhost;Port=7020;Database=postgres";
+        var connectionString = "User ID=postgres;Password=postgres;Host=localhost;Port=6320;Database=postgres";
 
         services.AddDbContext<IDatabaseContext, DatabaseContext>(builder =>
         {
@@ -19,7 +19,7 @@ public static class DatabaseConfiguration
         });
 
         services.AddScoped<IReadOnlyDatabaseContext, ReadOnlyDatabaseContext>();
-        
+
         return services;
     }
 }

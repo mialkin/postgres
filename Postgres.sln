@@ -4,8 +4,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Postgres.Api", "src\Postgre
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1FDBF036-E980-43CF-8C53-A8F766A6B603}"
 	ProjectSection(SolutionItems) = preProject
-		docker-compose.yml = docker-compose.yml
+		docker-compose.infrastructure.yml = docker-compose.infrastructure.yml
 		readme.md = readme.md
+		.env.example = .env.example
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		Makefile = Makefile
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Postgres.Infrastructure.Implementation.Database", "src\Postgres.Infrastructure.Implementation.Database\Postgres.Infrastructure.Implementation.Database.csproj", "{3FB24674-3120-4BC0-AF46-D2669F204638}"

@@ -1,7 +1,14 @@
 # Postgres
 
-Run infrastructure:
+Terminal 1:
 
 ```bash
-docker-compose up
+make run-infrastructure
+```
+
+Terminal 2:
+
+```bash
+make update-database
+make run-application
 ```
