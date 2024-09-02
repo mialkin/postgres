@@ -5,7 +5,7 @@ using Postgres.Infrastructure.Interfaces.Database;
 
 namespace Postgres.Infrastructure.Implementation.Database;
 
-public sealed class DatabaseContext : DbContext, IDatabaseContext
+internal sealed class DatabaseContext : DbContext, IDatabaseContext
 {
     public DbSet<Blog> Blogs { get; set; }
     public DbSet<Post> Posts { get; set; }
