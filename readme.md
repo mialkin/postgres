@@ -4,8 +4,8 @@ Showcase of using PostgreSQL with EC Core migrations.
 
 ## Prerequisites
 
-- .NET 8 SDK
-- Docker
+- [↑ .NET 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+- [↑ Docker](https://www.docker.com/products/docker-desktop/)
 - [↑ GNU Make](https://www.gnu.org/software/make/)
 - [↑ Entity Framework Core tools](https://learn.microsoft.com/en-us/ef/core/cli/dotnet)
 
