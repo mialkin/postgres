@@ -1,6 +1,6 @@
 # Postgres
 
-Showcase of using PostgreSQL with EC Core migrations.
+Showcase of using PostgreSQL with EF Core migrations.
 
 ## Prerequisites
 
